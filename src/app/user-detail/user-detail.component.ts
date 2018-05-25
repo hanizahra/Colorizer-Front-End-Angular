@@ -28,8 +28,22 @@ export class UserDetailComponent implements OnInit {
   getUser(): void {
   	const id = +this.route.snapshot.paramMap.get('id');
   	this.userService.getUser(id)
-  	  .subscribe(user => this.user = user);
+  	  .subscribe(user => {
+  	  	this.user = user
+  	  	console.log('this is the user from back end ', user);
+  	  	});
+
   }
+
+  save(): void {
+   this.userService.updateUser(this.user)
+     .subscribe(() => this.goBack());
+  }
+
+  // saveDetail(): void {
+  // 	this.userService.patchUser(this.user)
+  //    .subscribe(() => this.goBack());
+  // }
 
   goBack(): void {
   	this.location.back();

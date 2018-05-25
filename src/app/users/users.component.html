@@ -1,18 +1,53 @@
 <h2>{{user.name | uppercase}} Details</h2>
 <div><span>id: </span>{{user.id}}</div>
-<div><span>name: </span>{{user.firstName}}</div>
+<div><span>first name: </span>{{user.firstName}}</div>
+<div><span>last name: </span>{{user.lastName}}</div>
 
-<div>
-	<label>name:
-		<input [(ngModel)]="user.firstName" placeholder="name">
+<!-- <div>
+	<label>id:
+		<input [(ngModel)]="user.id" placeholder="id">
 	</label>
 </div>
+<div>
+	<label>first name:
+		<input [(ngModel)]="user.firstName" placeholder="first name">
+	</label>
+</div>
+<div>
+	<label>last name:
+		<input [(ngModel)]="user.lastName" placeholder="last name">
+	</label>
+</div>
+<button (click)="add(userName.value); userName.value=''">add user</button> -->
+
+<div>
+	<label>id:
+    <input [(ngModel)]="user.id" />
+  </label>
+  <label>User name:
+    <input [(ngModel)]="user.userName" />
+  </label>
+  <label>first name:
+    <input [(ngModel)]="user.firstName" />
+  </label>
+  <label>last name:
+    <input [(ngModel)]="user.lastName" />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(user); user.value=''">
+    add
+  </button>
+</div>
+
+
+
+
 
 <h2>My Users</h2>
 <ul class="users">
-	<li *ngFor="let user of users">
-		<a routerLink="/detail/{{user.id}}">
-			<span class="badge">{{user.id}}</span>{{user.lastName}}
+	<li *ngFor="let x of users">
+		<a routerLink="/detail/{{x.id}}">
+			<span class="badge">{{x.id}}</span>{{x.lastName}}
 		</a>
 	</li>
 </ul>
