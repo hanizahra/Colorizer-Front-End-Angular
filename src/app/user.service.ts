@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from './user';
-import { USERS } from './mock-users';
+//import { USERS } from './mock-users';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -18,7 +18,10 @@ export class UserService {
   }
 
   getUser(id: number): Observable<User> {
-    return of(USERS.find(user => user.id === id));
+    //return of(USERS.find(user => user.id === id));
+    //return this.http.get<User[]>(this.usersUrl)
+    const url = `${this.usersUrl}/${id}`;
+    return this.http.get<User>(url);
   }
 
 
