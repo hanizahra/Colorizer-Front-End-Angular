@@ -1,5 +1,13 @@
-<p>
-  image works!
-</p>
 
+
+
+
+<div>
+  <label>Image URL:
+    <input [(ngModel)]="userInput" />
+  </label>
+  <button (click)="colorizeImage(userInput); userInput.value=''">
+    add
+  </button>
+</div>
 {{img}}
