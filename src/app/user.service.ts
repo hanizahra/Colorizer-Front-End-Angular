@@ -44,6 +44,14 @@ export class UserService {
 	  );
 	} 
 
+	/** DELETE: delete the user from the server */
+	deleteUser (user: User | number): Observable<User> {
+		console.log("this is the user about to be deleted from services", user)
+	  const id = typeof user === 'number' ? user : user.id;
+	  const url = `${this.usersUrl}/${id}`;
+	  return this.http.delete<User>(url, httpOptions)
+	}
+
 
 	constructor(
 		private http: HttpClient,

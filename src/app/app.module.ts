@@ -8,6 +8,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ImageComponent } from './image/image.component';
 
 
 
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     UsersComponent,
     UserDetailComponent,
-    DashboardComponent
+    DashboardComponent,
+    ImageComponent
   ],
   imports: [
     BrowserModule,
