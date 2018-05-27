@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ImageService } from '../image.service';
+import { Location } from '@angular/common';
 
 const httpOptions = {
 		headers: new HttpHeaders({
@@ -16,8 +18,20 @@ const httpOptions = {
   // template: `<img [src]="img.src"/>`
 })
 export class ImageComponent implements OnInit {
+
+  constructor(
+    private http: HttpClient,
+    private imageService: ImageService,
+  	private location: Location
+  	) { }
   
-  
+  getImages(): void {
+    this.imageService.getImages()
+      .subscribe(images => {this.images = images
+      	console.log("this is images ", images)});
+  }
+
+
   colorizeImage(userInput): void {
 
   	// let body = ('image=https://i.imgur.com/Rl3NFUe.jpg');
@@ -36,28 +50,9 @@ export class ImageComponent implements OnInit {
 
   }
 
-
-  constructor(
-    private http: HttpClient
-  	) { }
-
   ngOnInit() {
-
  
-  	// let body = ('image=https://i.imgur.com/Rl3NFUe.jpg');
-   //  let imageUrl = 'https://i.imgur.com/Rl3NFUe.jpg';
-   //  let colorizerUrl = 'https://api.deepai.org/api/colorizer';
-  	// const req = this.http.post(colorizerUrl, body, httpOptions)
-   //    .subscribe(
-   //      res => {
-   //      	console.log("this is the image ", res.output_url);
-   //      },
-   //      err => {
-   //        console.log("Error occured");
-   //      }
-   //    );
-
-   
+    this.getImages();
 
   }
 

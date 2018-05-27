@@ -9,6 +9,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ImageComponent } from './image/image.component';
+import { ImageDetailComponent } from './image-detail/image-detail.component';
 
 
 
@@ -18,7 +19,8 @@ import { ImageComponent } from './image/image.component';
     UsersComponent,
     UserDetailComponent,
     DashboardComponent,
-    ImageComponent
+    ImageComponent,
+    ImageDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,5 @@
 
 
-
-
 <div>
   <label>Image URL:
     <input [(ngModel)]="userInput" />
@@ -11,3 +9,14 @@
   </button>
 </div>
 {{img}}
+
+<h2>My Pictures</h2>
+<ul class="users">
+	<li *ngFor="let x of images">
+		<a routerLink="/image-detail/{{x.id}}">
+			<span class="badge">{{x.id}}</span>{{x.originalImage}}
+		</a>
+		<button class="delete" title="delete image"
+    	(click)="delete(x)">x</button>
+	</li>
+</ul>

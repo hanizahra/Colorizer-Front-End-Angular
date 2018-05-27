@@ -4,9 +4,9 @@ import { User } from './user';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-	const httpOptions = {
-		headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-	};
+const httpOptions = {
+	headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +41,7 @@ export class UserService {
 	addUser (user: User): Observable<User> {
 		console.log("this is user in services ", user.user)
 	  return this.http.post<User>(this.usersUrl, user.user, httpOptions)
-	  );
+	  
 	} 
 
 	/** DELETE: delete the user from the server */
@@ -54,6 +54,6 @@ export class UserService {
 
 
 	constructor(
-		private http: HttpClient,
+		private http: HttpClient
 	) { }
 }
