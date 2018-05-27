@@ -11,6 +11,7 @@ const httpOptions = {
 		})
 	};
 
+
 @Component({
   selector: 'app-image',
   templateUrl: './image.component.html',
@@ -19,7 +20,9 @@ const httpOptions = {
 })
 export class ImageComponent implements OnInit {
 
-  images: Image[];
+  private imagesUrl = 'http://localhost:8080/images'
+
+  // images: Image[];
 
 
   image = {
@@ -28,6 +31,8 @@ export class ImageComponent implements OnInit {
     colorizedImage: '',
     note: ''
   };
+
+  
 
   constructor(
     private http: HttpClient,
@@ -48,7 +53,7 @@ export class ImageComponent implements OnInit {
   }
 
   add(image): void {
-    console.log("this is Image ", image)
+    console.log("this is Image being added from image component", image)
     if (!image) { return; }
     this.imageService.addImage({ image } as Image)
       .subscribe(image => {
@@ -58,15 +63,24 @@ export class ImageComponent implements OnInit {
 
 
   colorizeImage(userInput): void {
-
+  	let imageObject = {};
   	// let body = ('image=https://i.imgur.com/Rl3NFUe.jpg');
   	let body = ('image='+ userInput);
     let colorizerUrl = 'https://api.deepai.org/api/colorizer';
   	const req = this.http.post(colorizerUrl, body, httpOptions)
       .subscribe(
         res => {
-        	console.log("this is the original image ", userInput);
-        	console.log("this is the colorized image ", res.output_url);
+          console.log("this is the original image ", userInput);
+          console.log("this is the colorized image ", res.output_url);
+          let imagesLoaded = {
+          	id: '',
+		    originalImage: userInput,
+		    colorizedImage: res.output_url,
+		    note: ''
+		  };
+          console.log("this is imagesLoaded ", imagesLoaded);
+          //this.http.post<Image>(this.imagesUrl, imagesLoaded, httpOptions)
+          this.add(imagesLoaded);
         },
         err => {
           console.log("Error occured");
