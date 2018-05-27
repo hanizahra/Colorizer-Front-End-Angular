@@ -1,7 +1,8 @@
-<div *ngIf="image">
+<div *ngIf="image" class="flexing">
 
-		<h2>{{ image.originalImage | uppercase }} Details</h2>
+		<h2>{{ image.note | uppercase }} Details</h2>
 	
+	<div class="inside-flex">
 
 		<img [src]="image.originalImage"
 	     alt="Place image title"
@@ -12,11 +13,13 @@
 	     alt="Place image title"
 	     *ngIf="!isImageLoading; else noImageFound">
 
+	 </div>
+
 </div>
 
+<br/><br/><br/><br/>
 
-
-<div *ngIf="image">
+<div *ngIf="image" class="update-image">
 	<div>
 		<span>id: </span>{{image.id}}
 		<label>id:

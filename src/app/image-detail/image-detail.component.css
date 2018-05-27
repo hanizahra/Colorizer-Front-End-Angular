@@ -1,0 +1,21 @@
+.flexing {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.inside-flex {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+
+}
+
+.inside-flex img {
+  width: 500px;
+  object-fit: contain;
+}
+
+.update-image {
+	text-align: center;
+}
