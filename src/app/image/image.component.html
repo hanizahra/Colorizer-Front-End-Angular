@@ -1,6 +1,6 @@
 
 
-<div>
+<div class="user-url-input">
   <label>Image URL:
     <input [(ngModel)]="userInput" />
   </label>
@@ -10,9 +10,8 @@
 </div>
 {{img}}
 
-<br/><br/><br/><br/>
 
-<div>
+<!-- <div>
   <label>id:
     <input [(ngModel)]="image.id" />
   </label>
@@ -28,35 +27,49 @@
   <button (click)="add(image); image.value=''">
     add
   </button>
-</div>
+</div> -->
 
-<br/><br/><br/><br/>
+
+
 
 <h2>My Pictures</h2>
-<ul class="images">
-	<li *ngFor="let x of images">
-		<a routerLink="/image-detail/{{x.id}}">
-			<span class="badge">{{x.id}}</span>{{x.originalImage}}
-		</a>
+<!-- <div class="grid grid-pad">
+ -->	
+ 	<ul>
+		<li *ngFor="let x of images">
+
+			<div class="flexing">
+			
+
+				<div class="inside-flex">
+				
 
 
-		<img [src]="x.originalImage"
-		     alt="Place image title"
-		     *ngIf="!isImageLoading; else noImageFound">
-		<ng-template #noImageFound>
-		     <img src="fallbackImage.png" alt="Fallbackimage">
-		</ng-template>
+				<!-- <img src="x.originalImage" alt="..." class="img-thumbnail"> -->
+				<a routerLink="/image-detail/{{x.id}}">
+				<img [src]="x.originalImage"
+				     alt="Place image title"
+				     *ngIf="!isImageLoading; else noImageFound">
+				<!-- <ng-template #noImageFound>
+				     <img src="fallbackImage.png" alt="Fallbackimage">
+				</ng-template> -->
 
-		<img [src]="x.colorizedImage"
-		     alt="Place image title"
-		     *ngIf="!isImageLoading; else noImageFound">
-		<ng-template #noImageFound>
-		     <img src="fallbackImage.png" alt="Fallbackimage">
-		</ng-template>
+				
+				<img [src]="x.colorizedImage"
+				     alt="Place image title"
+				     *ngIf="!isImageLoading; else noImageFound">
+				<!-- <ng-template #noImageFound>
+				     <img src="fallbackImage.png" alt="Fallbackimage">
+				</ng-template> -->
+				<button class="delete" title="delete image"
+	    	            (click)="delete(x)">x</button>
 
-		<button class="delete" title="delete image"
-    	(click)="delete(x)">x</button>
-	</li>
-</ul>
+	    	    </a>
+				</div>
+
+				
+			</div>
+		</li>
+	</ul>
 
 

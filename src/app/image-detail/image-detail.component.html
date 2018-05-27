@@ -1,20 +1,40 @@
 <div *ngIf="image">
-	<h2>{{ image.originalImage | uppercase }} Details</h2>
+
+		<h2>{{ image.originalImage | uppercase }} Details</h2>
+	
+
+		<img [src]="image.originalImage"
+	     alt="Place image title"
+	     *ngIf="!isImageLoading; else noImageFound">
+
+
+		<img [src]="image.colorizedImage"
+	     alt="Place image title"
+	     *ngIf="!isImageLoading; else noImageFound">
+
+</div>
+
+
+
+<div *ngIf="image">
 	<div>
 		<span>id: </span>{{image.id}}
 		<label>id:
     		<input [(ngModel)]="image.id" placeholder="id">
   		</label>
+
 	</div>
 	<div>
 		<label>Original Image:
 			<input [(ngModel)]="image.originalImage" placeholder="original image">
 		</label>
+
 	</div>
 	<div>
 		<label>Colorized Image:
 			<input [(ngModel)]="image.colorizedImage" placeholder="colorized image">
 		</label>
+
 	</div>
 	<div>
 		<label>Note:
@@ -24,3 +44,6 @@
 	<button (click)="save()">save</button>
 	<button (click)="goBack()">go back</button>
 </div>
+
+
+

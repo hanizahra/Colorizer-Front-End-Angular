@@ -8,5 +8,16 @@
   "exclude": [
     "src/test.ts",
     "**/*.spec.ts"
-  ]
+  ],
+  "styles": [
+  "../node_modules/font-awesome/scss/font-awesome.scss",
+  "../node_modules/angular-bootstrap-md/scss/bootstrap/bootstrap.scss",
+  "../node_modules/angular-bootstrap-md/scss/mdb-free.scss",
+  "./styles.scss"
+  ],
+  "scripts": [
+  "../node_modules/chart.js/dist/Chart.js",
+  "../node_modules/hammerjs/hammer.min.js"
+  ],
+  "include": [ "**/*.ts", "../node_modules/angular-bootstrap-md/index.ts" ]
 }

@@ -29,7 +29,6 @@ export class ImageDetailComponent implements OnInit {
   	  	this.image = image
   	  	console.log('this is the image from back end ', image);
   	  	});
-
   }
 
   save(): void {

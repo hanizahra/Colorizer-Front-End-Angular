@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
 import { FormsModule } from '@angular/forms';
@@ -10,8 +9,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ImageComponent } from './image/image.component';
 import { ImageDetailComponent } from './image-detail/image-detail.component';
-
-
 
 @NgModule({
   declarations: [
@@ -26,7 +23,7 @@ import { ImageDetailComponent } from './image-detail/image-detail.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -20,6 +20,7 @@ const httpOptions = {
 })
 export class ImageComponent implements OnInit {
 
+
   private imagesUrl = 'http://localhost:8080/images'
 
   // images: Image[];
@@ -88,6 +89,7 @@ export class ImageComponent implements OnInit {
       );
 
   }
+
 
   ngOnInit() {
  
