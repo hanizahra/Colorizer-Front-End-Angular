@@ -1,3 +1,26 @@
-<p>
-  image-detail works!
-</p>
+<div *ngIf="image">
+	<h2>{{ image.originalImage | uppercase }} Details</h2>
+	<div>
+		<span>id: </span>{{image.id}}
+		<label>id:
+    		<input [(ngModel)]="image.id" placeholder="id">
+  		</label>
+	</div>
+	<div>
+		<label>Original Image:
+			<input [(ngModel)]="image.originalImage" placeholder="original image">
+		</label>
+	</div>
+	<div>
+		<label>Colorized Image:
+			<input [(ngModel)]="image.colorizedImage" placeholder="colorized image">
+		</label>
+	</div>
+	<div>
+		<label>Note:
+			<input [(ngModel)]="image.note" placeholder="note">
+		</label>
+	</div>
+	<button (click)="save()">save</button>
+	<button (click)="goBack()">go back</button>
+</div>

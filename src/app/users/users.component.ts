@@ -55,7 +55,7 @@ export class UsersComponent implements OnInit {
   delete(user: User): void {
   	console.log("this is user in the delete function ", user)
     this.users = this.users.filter(u => u !== user);
-	this.userService.deleteUser(user).subscribe();
+	  this.userService.deleteUser(user).subscribe();
   }
 
 }

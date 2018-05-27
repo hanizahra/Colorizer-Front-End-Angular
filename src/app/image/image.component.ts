@@ -19,6 +19,16 @@ const httpOptions = {
 })
 export class ImageComponent implements OnInit {
 
+  images: Image[];
+
+
+  image = {
+    id: 0,
+    originalImage: '',
+    colorizedImage: '',
+    note: ''
+  };
+
   constructor(
     private http: HttpClient,
     private imageService: ImageService,
@@ -29,6 +39,21 @@ export class ImageComponent implements OnInit {
     this.imageService.getImages()
       .subscribe(images => {this.images = images
       	console.log("this is images ", images)});
+  }
+
+  delete(image: Image): void {
+  	console.log("this is image in the delete function ", image)
+    this.images = this.images.filter(u => u !== image);
+	  this.imageService.deleteImage(image).subscribe();
+  }
+
+  add(image): void {
+    console.log("this is Image ", image)
+    if (!image) { return; }
+    this.imageService.addImage({ image } as Image)
+      .subscribe(image => {
+      this.images.push(image);
+      });
   }
 
 

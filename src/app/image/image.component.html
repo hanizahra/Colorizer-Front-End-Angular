@@ -10,6 +10,24 @@
 </div>
 {{img}}
 
+<div>
+  <label>id:
+    <input [(ngModel)]="image.id" />
+  </label>
+  <label>Original Image:
+    <input [(ngModel)]="image.originalImage" />
+  </label>
+  <label>Colorized Image:
+    <input [(ngModel)]="image.colorizeImage" />
+  </label>
+  <label>Note:
+    <input [(ngModel)]="image.note" />
+  </label>
+  <button (click)="add(image); image.value=''">
+    add
+  </button>
+</div>
+
 <h2>My Pictures</h2>
 <ul class="users">
 	<li *ngFor="let x of images">

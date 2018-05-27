@@ -40,11 +40,6 @@ export class UserDetailComponent implements OnInit {
      .subscribe(() => this.goBack());
   }
 
-  // saveDetail(): void {
-  // 	this.userService.patchUser(this.user)
-  //    .subscribe(() => this.goBack());
-  // }
-
   goBack(): void {
   	this.location.back();
   }
