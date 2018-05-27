@@ -61,6 +61,7 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  
 }
 
 .inside-flex {
@@ -68,11 +69,13 @@
   flex-flow: row nowrap;
   align-items: center;
 
+
 }
 
 .inside-flex img {
   width: 300px;
   object-fit: contain;
+
 }
 
 ul {

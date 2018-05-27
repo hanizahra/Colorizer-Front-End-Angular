@@ -47,6 +47,24 @@ h4 {
   padding-right: 20px;
 }
 
+.flexing {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.inside-flex {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+
+}
+
+.inside-flex img {
+  width: 75%;
+  object-fit: contain;
+}
+
 h3 {
   text-align: center;
 }

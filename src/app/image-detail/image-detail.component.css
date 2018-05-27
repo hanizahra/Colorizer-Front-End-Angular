@@ -8,11 +8,11 @@
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-
+  justify-content: center;
 }
 
 .inside-flex img {
-  width: 500px;
+  width: 40%;
   object-fit: contain;
 }
 

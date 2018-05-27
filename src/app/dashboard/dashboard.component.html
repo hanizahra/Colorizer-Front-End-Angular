@@ -8,3 +8,19 @@
     </div>
   </a>
 </div>
+
+<br/><br/><br/><br/>
+
+<h3>Top Images</h3>
+<br/><br/>
+<div class="flexing">
+	<div class="inside-flex">
+	  <a *ngFor="let image of images" 
+	    routerLink="/image-detail/{{image.id}}">
+	      <img  [src]="image.originalImage"
+			alt="Place image title"
+			*ngIf="!isImageLoading; else noImageFound"/> 
+	  </a>
+	</div>
+</div>
+
