@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ImageService } from '../image.service';
 import { Location } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 const httpOptions = {
 		headers: new HttpHeaders({
@@ -38,7 +40,9 @@ export class ImageComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private imageService: ImageService,
-  	private location: Location
+  	private location: Location,
+  	private route: ActivatedRoute,
+  	private router: Router
   	) { }
   
   getImages(): void {
@@ -59,6 +63,7 @@ export class ImageComponent implements OnInit {
     this.imageService.addImage({ image } as Image)
       .subscribe(image => {
       this.images.push(image);
+      this.router.navigate([`image-detail/${image.id}`])
       });
   }
 
