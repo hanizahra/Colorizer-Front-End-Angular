@@ -92,6 +92,7 @@ h3 {
 
 .loading-message {
   text-align: center;
+  font-size: 10px;
 }
 
 /*@media all and (min-width: 40em) {

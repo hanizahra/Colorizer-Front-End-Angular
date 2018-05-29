@@ -25,6 +25,7 @@ const httpOptions = {
 })
 export class DashboardComponent implements OnInit {
 
+
   isLoading = false;
   loading = 'Image is loading...';
   private imagesUrl = 'http://localhost:8080/images';
@@ -105,18 +106,5 @@ export class DashboardComponent implements OnInit {
       	console.log("this is images ", images)});
   }
 
-
- 
-
-  
-
-  // private showLoader(): void {
-  // 	this.isLoading = true;
-  //   console.log('Show loader');
-  // }
-
-  // private hideLoader(): void {
-  //   console.log('Hide loader');
-  // }
 
 }

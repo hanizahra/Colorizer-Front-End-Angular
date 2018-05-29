@@ -56,7 +56,6 @@ export class ImageComponent implements OnInit {
   	console.log("this is image in the delete function ", image)
     this.images = this.images.filter(u => u !== image);
 	  this.imageService.deleteImage(image).subscribe();
-	  this.router.navigate(['image'])
   }
 
   add(image): void {
@@ -66,7 +65,7 @@ export class ImageComponent implements OnInit {
       .subscribe(image => {
       this.images.push(image);
       this.hideLoader();
-      this.router.navigate([`image-detail/${image.id}`]);
+      // this.router.navigate([`image-detail/${image.id}`]);
       });
   }
 

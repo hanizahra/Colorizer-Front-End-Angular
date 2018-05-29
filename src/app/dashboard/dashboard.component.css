@@ -64,6 +64,11 @@ h4 {
   text-align: center;
 }
 
+.loading-message {
+  text-align: center;
+  font-size: 10px;
+}
+
 .inside-flex img {
   width: 75%;
   object-fit: contain;
