@@ -28,7 +28,14 @@ export class DashboardComponent implements OnInit {
   loading = 'Image is loading...';
   private imagesUrl = 'http://localhost:8080/images';
 
-  users: User[] = [];
+  image = {
+    id: 0,
+    originalImage: '',
+    colorizedImage: '',
+    note: ''
+  };
+
+  images = [];
 
 
   constructor(
@@ -46,11 +53,12 @@ export class DashboardComponent implements OnInit {
 
   // adds colorized and original images to database via Services
   add(image): void {
-    console.log("this is Image being added from image component", image)
+    console.log("this is Image being added from dashboard component", image)
     if (!image) { return; }
-    this.imageService.addImage({ image } as Image)
+    this.imageService.addImage(image)
       .subscribe(image => {
       this.images.push(image);
+      console.log("what is this image??? ", image);
       this.hideLoader();
       this.router.navigate([`image-detail/${image.id}`]);
       });
@@ -63,11 +71,11 @@ export class DashboardComponent implements OnInit {
   	let body = ('image='+ userInput);
     let colorizerUrl = 'https://api.deepai.org/api/colorizer';
     this.showLoader();
-  	const req = this.http.post(colorizerUrl, body, httpOptions)
+  	const req = this.http.post<any>(colorizerUrl, body, httpOptions)
       .subscribe(
         res => {
           console.log("this is the original image ", userInput);
-          console.log("this is the colorized image ", res.output_url);
+          // console.log("this is the colorized image ", res.output_url);
           let imagesLoaded = {
           	id: '',
 		    originalImage: userInput,
@@ -99,8 +107,10 @@ export class DashboardComponent implements OnInit {
   // method to retrieve images already in database
   getImages(): void {
     this.imageService.getImages()
-      .subscribe(images => {this.images = images.slice(1, 5));
-      	console.log("this is images ", images)});
+      .subscribe(images => {
+      	this.images = images.slice(1, 5);
+      	console.log("this is images ", images)
+      });
   }
 
 

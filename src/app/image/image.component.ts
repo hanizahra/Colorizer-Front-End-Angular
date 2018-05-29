@@ -37,7 +37,7 @@ export class ImageComponent implements OnInit {
     note: ''
   };
 
-  
+  images = [];  
 
   constructor(
     private http: HttpClient,
@@ -55,7 +55,7 @@ export class ImageComponent implements OnInit {
   }
 
   // deletes image set from database via Services
-  delete(image: Image): void {
+  delete(image): void {
   	console.log("this is image in the delete function ", image)
     this.images = this.images.filter(u => u !== image);
 	  this.imageService.deleteImage(image).subscribe();
@@ -65,11 +65,11 @@ export class ImageComponent implements OnInit {
   add(image): void {
     console.log("this is Image being added from image component", image)
     if (!image) { return; }
-    this.imageService.addImage({ image } as Image)
+    this.imageService.addImage(image)
       .subscribe(image => {
       this.images.push(image);
       this.hideLoader();
-      // this.router.navigate([`image-detail/${image.id}`]);
+      this.router.navigate([`image-detail/${image.id}`]);
       });
   }
 
@@ -81,7 +81,7 @@ export class ImageComponent implements OnInit {
   	let body = ('image='+ userInput);
     let colorizerUrl = 'https://api.deepai.org/api/colorizer';
     this.showLoader();
-  	const req = this.http.post(colorizerUrl, body, httpOptions)
+  	const req = this.http.post<any>(colorizerUrl, body, httpOptions)
       .subscribe(
         res => {
           console.log("this is the original image ", userInput);
@@ -104,6 +104,7 @@ export class ImageComponent implements OnInit {
   }
 
   // loader methods are used to indicate to user that image is currently being transformed
+
   private showLoader(): void {
   	this.isLoading = true;
     console.log('Show loader');

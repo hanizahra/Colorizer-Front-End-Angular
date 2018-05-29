@@ -10,7 +10,14 @@ import { ImageService }  from '../image.service';
 })
 export class ImageDetailComponent implements OnInit {
 
-  @Input() image: Image;
+  // @Input() image: Image;
+
+  image = {
+    id: 0,
+    originalImage: '',
+    colorizedImage: '',
+    note: ''
+  };
 
   constructor(
     private route: ActivatedRoute,
