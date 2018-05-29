@@ -60,9 +60,17 @@ h4 {
 
 }
 
+.user-url-input {
+  text-align: center;
+}
+
 .inside-flex img {
   width: 75%;
   object-fit: contain;
+}
+
+p {
+  text-align: center;
 }
 
 h3 {

@@ -1,7 +1,52 @@
 h1 {
 	text-align: center;
+	font-size: 60px;
 }
 
 nav {
 	text-align: center;
+	background-color: black;
+	height: 20px;
+}
+
+p {
+	text-align: center;
+}
+
+.centered {
+	text-align: center;
+}
+
+.link {
+	color: white;
+	word-spacing: 20px;
+	text-decoration: none;
+}
+
+.link-one:hover { 
+    font-weight: bold;
+}
+
+.link-two:hover {
+	font-weight: bold;
+}
+
+.grey {
+	color: silver;
+}
+
+.red {
+	color: #FF1407;
+}
+
+.blue {
+	color: #4179F7;
+}
+
+.orange {
+	color: #FFBE00;
+}
+
+.violet {
+	color: #FF1407;
 }
