@@ -1,48 +1,32 @@
+<!-- Displays specific image set side by side -->
 <div *ngIf="image" class="flexing">
-
-		<h2>Notes: {{ image.note | uppercase }}</h2>
-	
+  <h2>Notes: {{ image.note | uppercase }}</h2>
 	<div class="inside-flex">
 
-		<img [src]="image.originalImage"
-	     alt="Place image title"
-	     *ngIf="!isImageLoading; else noImageFound">
+	  <img [src]="image.originalImage"
+       alt="Place image title"
+       *ngIf="!isImageLoading; else noImageFound">
 
 
-		<img [src]="image.colorizedImage"
-	     alt="Place image title"
-	     *ngIf="!isImageLoading; else noImageFound">
+	  <img [src]="image.colorizedImage"
+       alt="Place image title"
+       *ngIf="!isImageLoading; else noImageFound">
 
-	 </div>
+	</div>
 
 </div>
 
 <br/><br/><br/><br/>
 
+<!-- User can update/add a note to image set -->
 <div *ngIf="image" class="update-image">
-	<!-- <div>
-		<span>id: </span>{{image.id}}
-		<label>id:
-    		<input [(ngModel)]="image.id" placeholder="id">
-  		</label>
-	</div>
-	<div>
-		<label>Original Image:
-			<input [(ngModel)]="image.originalImage" placeholder="original image">
-		</label>
-	</div>
-	<div>
-		<label>Colorized Image:
-			<input [(ngModel)]="image.colorizedImage" placeholder="colorized image">
-		</label>
-	</div> -->
-	<div>
-		<label>Note:
-			<input [(ngModel)]="image.note" placeholder="note">
-		</label>
-	</div>
-	<button (click)="save()">save</button>
-	<button (click)="goBack()">go back</button>
+  <div>
+    <label>Note:
+	  <input [(ngModel)]="image.note" placeholder="note">
+	</label>
+  </div>
+  <button (click)="save()">save</button>
+  <button (click)="goBack()">go back</button>
 </div>
 
 

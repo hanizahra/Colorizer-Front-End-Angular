@@ -18,10 +18,12 @@ export class ImageDetailComponent implements OnInit {
     private location: Location
   	) { }
 
+  // retrieves image by ID from database on page load
   ngOnInit() {
   	this.getImage();
   }
 
+  // retrieves image by ID from database
   getImage(): void {
   	const id = +this.route.snapshot.paramMap.get('id');
   	this.imageService.getImage(id)
@@ -31,6 +33,7 @@ export class ImageDetailComponent implements OnInit {
   	  	});
   }
 
+  // allows user to update notes/tags with photos in database
   save(): void {
    this.imageService.updateImage(this.image)
      .subscribe(() => this.goBack());

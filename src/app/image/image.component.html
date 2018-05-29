@@ -1,5 +1,5 @@
 
-
+<!-- User can add new URL of B&W image -->
 <div class="user-url-input">
   <label>Image URL:
     <input [(ngModel)]="userInput" />
@@ -12,65 +12,34 @@
 
 <h3 class="loading-message" *ngIf="isLoading">{{loading}}</h3>
 
-<!-- <div>
-  <label>id:
-    <input [(ngModel)]="image.id" />
-  </label>
-  <label>Original Image:
-    <input [(ngModel)]="image.originalImage" />
-  </label>
-  <label>Colorized Image:
-    <input [(ngModel)]="image.colorizeImage" />
-  </label>
-  <label>Note:
-    <input [(ngModel)]="image.note" />
-  </label>
-  <button (click)="add(image); image.value=''">
-    add
-  </button>
-</div> -->
 
-
-
-
+<!-- Displays all image sets saved in DB -->
 <h3>My Pictures</h3>
-<!-- <div class="grid grid-pad">
- -->	
- 	<ul>
-		<li *ngFor="let x of images">
+  <ul>
+    <li *ngFor="let x of images">
+      <div class="flexing">
+	    <div class="inside-flex">
+		  <!-- <img src="x.originalImage" alt="..." class="img-thumbnail"> -->
+		  <a routerLink="/image-detail/{{x.id}}">
+		  <img [src]="x.originalImage"
+		    alt="Place image title"
+		    *ngIf="!isImageLoading; else noImageFound">
+		    <!-- <ng-template #noImageFound>
+		    <img src="fallbackImage.png" alt="Fallbackimage">
+		    </ng-template> -->
 
-			<div class="flexing">
-			
-
-				<div class="inside-flex">
-				
-
-
-				<!-- <img src="x.originalImage" alt="..." class="img-thumbnail"> -->
-				<a routerLink="/image-detail/{{x.id}}">
-				<img [src]="x.originalImage"
-				     alt="Place image title"
-				     *ngIf="!isImageLoading; else noImageFound">
-				<!-- <ng-template #noImageFound>
-				     <img src="fallbackImage.png" alt="Fallbackimage">
-				</ng-template> -->
-
-				
-				<img [src]="x.colorizedImage"
-				     alt="Place image title"
-				     *ngIf="!isImageLoading; else noImageFound">
-				<!-- <ng-template #noImageFound>
-				     <img src="fallbackImage.png" alt="Fallbackimage">
-				</ng-template> -->
-				<button class="delete" title="delete image"
-	    	            (click)="delete(x)">x</button>
-
-	    	    </a>
-				</div>
-
-				
-			</div>
-		</li>
-	</ul>
+		  <img [src]="x.colorizedImage"
+		    alt="Place image title"
+		    *ngIf="!isImageLoading; else noImageFound">
+		    <!-- <ng-template #noImageFound>
+		    <img src="fallbackImage.png" alt="Fallbackimage">
+		    </ng-template> -->
+		    <button class="delete" title="delete image"
+	          (click)="delete(x)">x</button>
+	      </a>
+		</div>	
+	  </div>
+    </li>
+  </ul>
 
 

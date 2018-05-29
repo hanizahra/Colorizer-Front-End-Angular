@@ -1,5 +1,5 @@
 
-
+<!-- users input URL of B&W photo -->
 <div class="user-url-input">
   <label>Image URL:
     <input [(ngModel)]="userInput" />
@@ -9,8 +9,10 @@
   </button>
 </div>
 
+<!-- initiates photo colorization is loading message -->
 <h3 class="loading-message" *ngIf="isLoading">{{loading}}</h3>
 
+<!-- displays list of select images from db -->
 <br/><br/><br/>
 <div class="flexing">
 	<div class="inside-flex">

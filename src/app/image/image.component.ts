@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 
+// headers set for post method
 const httpOptions = {
 		headers: new HttpHeaders({
 			// "Api-Key": "20d22b6a-7c2b-49fa-ab4e-08dbb65b6619",
@@ -46,18 +47,21 @@ export class ImageComponent implements OnInit {
   	private router: Router
   	) { }
   
+  // retrieves all images from database via Services
   getImages(): void {
     this.imageService.getImages()
       .subscribe(images => {this.images = images
       	console.log("this is images ", images)});
   }
 
+  // deletes image set from database via Services
   delete(image: Image): void {
   	console.log("this is image in the delete function ", image)
     this.images = this.images.filter(u => u !== image);
 	  this.imageService.deleteImage(image).subscribe();
   }
 
+  // adds image set to database via Services
   add(image): void {
     console.log("this is Image being added from image component", image)
     if (!image) { return; }
@@ -70,6 +74,7 @@ export class ImageComponent implements OnInit {
   }
 
 
+  // makes HTTP post request to third party API for photo colorization then adds to database
   colorizeImage(userInput): void {
   	let imageObject = {};
   	// let body = ('image=https://i.imgur.com/Rl3NFUe.jpg');
@@ -98,6 +103,7 @@ export class ImageComponent implements OnInit {
 
   }
 
+  // loader methods are used to indicate to user that image is currently being transformed
   private showLoader(): void {
   	this.isLoading = true;
     console.log('Show loader');
