@@ -29,7 +29,7 @@ export class DashboardComponent implements OnInit {
 
   getImages(): void {
     this.imageService.getImages()
-      .subscribe(images => {this.images = images
+      .subscribe(images => {this.images = images.slice(1, 5));
       	console.log("this is images ", images)});
   }
 

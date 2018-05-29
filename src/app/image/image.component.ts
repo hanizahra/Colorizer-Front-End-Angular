@@ -22,8 +22,9 @@ const httpOptions = {
 })
 export class ImageComponent implements OnInit {
 
-
-  private imagesUrl = 'http://localhost:8080/images'
+  isLoading = false;
+  loading = 'Image is loading...';
+  private imagesUrl = 'http://localhost:8080/images';
 
   // images: Image[];
 
@@ -55,6 +56,7 @@ export class ImageComponent implements OnInit {
   	console.log("this is image in the delete function ", image)
     this.images = this.images.filter(u => u !== image);
 	  this.imageService.deleteImage(image).subscribe();
+	  this.router.navigate(['image'])
   }
 
   add(image): void {
@@ -63,7 +65,8 @@ export class ImageComponent implements OnInit {
     this.imageService.addImage({ image } as Image)
       .subscribe(image => {
       this.images.push(image);
-      this.router.navigate([`image-detail/${image.id}`])
+      this.hideLoader();
+      this.router.navigate([`image-detail/${image.id}`]);
       });
   }
 
@@ -73,6 +76,7 @@ export class ImageComponent implements OnInit {
   	// let body = ('image=https://i.imgur.com/Rl3NFUe.jpg');
   	let body = ('image='+ userInput);
     let colorizerUrl = 'https://api.deepai.org/api/colorizer';
+    this.showLoader();
   	const req = this.http.post(colorizerUrl, body, httpOptions)
       .subscribe(
         res => {
@@ -93,6 +97,15 @@ export class ImageComponent implements OnInit {
         }
       );
 
+  }
+
+  private showLoader(): void {
+  	this.isLoading = true;
+    console.log('Show loader');
+  }
+
+  private hideLoader(): void {
+    console.log('Hide loader');
   }
 
 

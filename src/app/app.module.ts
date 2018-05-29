@@ -9,6 +9,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ImageComponent } from './image/image.component';
 import { ImageDetailComponent } from './image-detail/image-detail.component';
+// import { LoaderComponent } from './loader/loader.component';
+// import { MaterialModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -17,13 +19,15 @@ import { ImageDetailComponent } from './image-detail/image-detail.component';
     UserDetailComponent,
     DashboardComponent,
     ImageComponent,
-    ImageDetailComponent
+    ImageDetailComponent,
+    // LoaderComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    // MaterialModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

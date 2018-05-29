@@ -1,6 +1,6 @@
 <div *ngIf="image" class="flexing">
 
-		<h2>{{ image.note | uppercase }} Details</h2>
+		<h2>Notes: {{ image.note | uppercase }}</h2>
 	
 	<div class="inside-flex">
 
@@ -20,25 +20,22 @@
 <br/><br/><br/><br/>
 
 <div *ngIf="image" class="update-image">
-	<div>
+	<!-- <div>
 		<span>id: </span>{{image.id}}
 		<label>id:
     		<input [(ngModel)]="image.id" placeholder="id">
   		</label>
-
 	</div>
 	<div>
 		<label>Original Image:
 			<input [(ngModel)]="image.originalImage" placeholder="original image">
 		</label>
-
 	</div>
 	<div>
 		<label>Colorized Image:
 			<input [(ngModel)]="image.colorizedImage" placeholder="colorized image">
 		</label>
-
-	</div>
+	</div> -->
 	<div>
 		<label>Note:
 			<input [(ngModel)]="image.note" placeholder="note">
