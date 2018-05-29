@@ -58,7 +58,8 @@ export class ImageComponent implements OnInit {
   delete(image): void {
   	console.log("this is image in the delete function ", image)
     this.images = this.images.filter(u => u !== image);
-	  this.imageService.deleteImage(image).subscribe();
+	  this.imageService.deleteImage(image).subscribe( function(){console.log('test')} );
+    // this.router.navigate([`image`]);
   }
 
   // adds image set to database via Services

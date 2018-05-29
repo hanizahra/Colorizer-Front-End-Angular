@@ -1,5 +1,5 @@
 
-<!-- User can add new URL of B&W image -->
+<!-- User can add newURL of B&W image -->
 <div class="user-url-input">
   <label>Image URL:
     <input [(ngModel)]="userInput" />
@@ -19,24 +19,20 @@
     <li *ngFor="let x of images">
       <div class="flexing">
 	    <div class="inside-flex">
-		  <!-- <img src="x.originalImage" alt="..." class="img-thumbnail"> -->
+
 		  <a routerLink="/image-detail/{{x.id}}">
 		  <img [src]="x.originalImage"
 		    alt="Place image title"
 		    *ngIf="!isImageLoading; else noImageFound">
-		    <!-- <ng-template #noImageFound>
-		    <img src="fallbackImage.png" alt="Fallbackimage">
-		    </ng-template> -->
 
 		  <img [src]="x.colorizedImage"
 		    alt="Place image title"
 		    *ngIf="!isImageLoading; else noImageFound">
-		    <!-- <ng-template #noImageFound>
-		    <img src="fallbackImage.png" alt="Fallbackimage">
-		    </ng-template> -->
-		    <button class="delete" title="delete image"
-	          (click)="delete(x)">x</button>
+	
 	      </a>
+	      <button class="delete" title="delete image"
+	          (click)="delete(x)">x</button>
+	          
 		</div>	
 	  </div>
     </li>
