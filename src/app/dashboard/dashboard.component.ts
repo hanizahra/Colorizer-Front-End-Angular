@@ -26,7 +26,7 @@ export class DashboardComponent implements OnInit {
 
   isLoading = false;
   loading = 'Image is loading...';
-  private imagesUrl = 'http://localhost:8080/images';
+  private imagesUrl = 'http://localhost:8080/colorizer/images';
 
   image = {
     id: 0,
@@ -108,7 +108,7 @@ export class DashboardComponent implements OnInit {
   getImages(): void {
     this.imageService.getImages()
       .subscribe(images => {
-      	this.images = images.slice(1, 5);
+      	this.images = images.slice(0, 4);
       	console.log("this is images ", images)
       });
   }

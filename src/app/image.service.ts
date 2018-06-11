@@ -13,7 +13,7 @@ const httpOptions = {
 })
 export class ImageService {
 
-  private imagesUrl = 'http://localhost:8080/images'
+  private imagesUrl = 'http://localhost:8080/colorizer/images'
 
   // gets all image sets from DB via Spring
   getImages(): Observable<any[]> {

@@ -25,7 +25,7 @@ export class ImageComponent implements OnInit {
 
   isLoading = false;
   loading = 'Image is loading...';
-  private imagesUrl = 'http://localhost:8080/images';
+  private imagesUrl = 'http://localhost:8080/colorizer/images';
 
   // images: Image[];
 
