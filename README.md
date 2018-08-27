@@ -24,3 +24,4 @@ Later implemented as a microservice alongside another DeepAI API, a Sentiment An
 * The app will function as a standalone Angular app, however, you can utitlize the back end [here](https://github.com/hanizahra/Colorizer-Back-End-Springboot.git)
 
 ## Preview
+![Screenshot of blackandwhite](/images/colorizer1.png "Screenshot")![Screenshot of colorized](/images/colorizer2.png "Screenshot")
