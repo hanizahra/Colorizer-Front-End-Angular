@@ -1,27 +1,26 @@
-# AngularProjectTwo
+# Colorizer
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.3.
+## Description
+A web application that demos the Image Colorization API from [DeepAI](https://deepai.org/api-docs/#image-colorization). A user inputs a black and white image via a link and receives the image back colorized.
 
-## Development server
+## Tech
+### Front End
+* TypeScript
+* Angular CLI @v6.0.3
+* HTML
+* Bootstrap/CSS
+### Back End
+* PostgreSQL
+* Java
+* Spring Boot
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Later implemented as a microservice alongside another DeepAI API, a Sentiment Analyzer.
 
-## Code scaffolding
+## Installation
+* `git clone https://github.com/hanizahra/Colorizer-Front-End-Angular.git`
+* run `npm install`
+* run `ng serve`
+* You will need to register for an API key with [DeepAI](https://deepai.org/)
+* The app will function as a standalone Angular app, however, you can utitlize the back end [here](https://github.com/hanizahra/Colorizer-Back-End-Springboot.git)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Preview
